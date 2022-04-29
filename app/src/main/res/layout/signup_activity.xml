@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activity.SigninActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/theme" />
 
     <EditText
-        android:id="@+id/edt_search"
+        android:id="@+id/edtGmail"
         android:layout_width="347dp"
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
@@ -32,10 +32,10 @@
         android:textColorHint="#9E9E9E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_search3" />
+        app:layout_constraintTop_toBottomOf="@+id/edtName" />
 
     <EditText
-        android:id="@+id/edt_search2"
+        android:id="@+id/edtPassword"
         android:layout_width="347dp"
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
@@ -48,10 +48,10 @@
         android:textColorHint="#9E9E9E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_search" />
+        app:layout_constraintTop_toBottomOf="@+id/edtGmail" />
 
     <EditText
-        android:id="@+id/edt_search3"
+        android:id="@+id/edtName"
         android:layout_width="347dp"
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
@@ -64,20 +64,21 @@
         android:textColorHint="#9E9E9E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/tvUploadAvatar" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/ivAvatar"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_vector_user" />
 
     <Button
-        android:id="@+id/btn_add"
+        android:id="@+id/btnSignup"
         android:layout_width="347dp"
         android:layout_height="70dp"
         android:layout_marginTop="32dp"
@@ -89,7 +90,7 @@
         app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_search2" />
+        app:layout_constraintTop_toBottomOf="@+id/edtPassword" />
 
     <TextView
         android:id="@+id/textView2"
@@ -101,10 +102,10 @@
         android:textSize="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_add" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSignup" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvSignin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -115,5 +116,18 @@
         app:layout_constraintEnd_toEndOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="@+id/textView2"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/tvUploadAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="UPLOAD AVATAR"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/ivAvatar"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toStartOf="@+id/ivAvatar"
+        app:layout_constraintTop_toBottomOf="@+id/ivAvatar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "541314428872",
+    "project_id": "lttbdd-subproject-group17",
+    "storage_bucket": "lttbdd-subproject-group17.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:541314428872:android:c7b8913cdd0b8663bf5afd",
+        "android_client_info": {
+          "package_name": "com.example.dhktpm15a_lttbdd_subproject_qlpb_nhom17"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "541314428872-6144rp3mncm24v5gr2s8efvm50qa1ssv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAg75hVHxFbmxVkWt-V0p0guFIFm3w0vM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "541314428872-6144rp3mncm24v5gr2s8efvm50qa1ssv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

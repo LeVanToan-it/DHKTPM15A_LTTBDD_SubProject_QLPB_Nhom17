@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activity.SigninActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/theme" />
 
     <EditText
-        android:id="@+id/edt_search"
+        android:id="@+id/edtSearch"
         android:layout_width="347dp"
         android:layout_height="60dp"
         android:layout_marginTop="120dp"
@@ -50,7 +50,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btn_add"
+        android:id="@+id/btnAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -63,7 +63,7 @@
         app:layout_constraintTop_toTopOf="@+id/view" />
 
     <Button
-        android:id="@+id/btn_edit"
+        android:id="@+id/btnEdit"
         android:layout_width="wrap_content"
         android:backgroundTint="#1598A0"
         android:layout_height="wrap_content"
@@ -72,12 +72,12 @@
         android:text="EDIT"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintStart_toEndOf="@+id/btn_add"
-        app:layout_constraintTop_toTopOf="@+id/btn_add"
+        app:layout_constraintStart_toEndOf="@+id/btnAdd"
+        app:layout_constraintTop_toTopOf="@+id/btnAdd"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/btn_delete"
+        android:id="@+id/btnDelete"
         android:backgroundTint="#B52626"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -88,29 +88,29 @@
         app:backgroundTint="@null"
         app:layout_constraintEnd_toEndOf="@+id/view"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/btn_edit"
+        app:layout_constraintStart_toEndOf="@+id/btnEdit"
         app:layout_constraintTop_toTopOf="@+id/view" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/ivAvatar"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginEnd="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/edt_search"
+        app:layout_constraintBottom_toTopOf="@+id/edtSearch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.55"
         app:srcCompat="@drawable/ic_vector_user" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/ibBack"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
+        app:layout_constraintEnd_toStartOf="@+id/ivAvatar"
         app:layout_constraintHorizontal_bias="0.118"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/ivAvatar"
         app:layout_constraintVertical_bias="0.55"
         app:srcCompat="@drawable/ic_vector"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -123,11 +123,11 @@
         android:text="Back"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintBottom_toBottomOf="@+id/ibBack"
+        app:layout_constraintEnd_toStartOf="@+id/ivAvatar"
         app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toTopOf="@+id/imageButton"
+        app:layout_constraintStart_toEndOf="@+id/ibBack"
+        app:layout_constraintTop_toTopOf="@+id/ibBack"
         app:layout_constraintVertical_bias="0.476" />
 
     <ListView
@@ -138,6 +138,6 @@
         app:layout_constraintBottom_toTopOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_search"
+        app:layout_constraintTop_toBottomOf="@+id/edtSearch"
         app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>

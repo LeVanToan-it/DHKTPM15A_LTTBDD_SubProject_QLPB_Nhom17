@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activity.SigninActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/theme" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/ivAvatar"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
@@ -29,14 +29,14 @@
         app:srcCompat="@drawable/ic_vector_user" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/ibBack"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
+        app:layout_constraintEnd_toStartOf="@+id/ivAvatar"
         app:layout_constraintHorizontal_bias="0.118"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/ivAvatar"
         app:layout_constraintVertical_bias="0.55"
         app:srcCompat="@drawable/ic_vector"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
@@ -49,17 +49,17 @@
         android:text="Edit Product"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageButton"
-        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintBottom_toBottomOf="@+id/ibBack"
+        app:layout_constraintEnd_toStartOf="@+id/ivAvatar"
         app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toEndOf="@+id/imageButton"
-        app:layout_constraintTop_toTopOf="@+id/imageButton"
+        app:layout_constraintStart_toEndOf="@+id/ibBack"
+        app:layout_constraintTop_toTopOf="@+id/ibBack"
         app:layout_constraintVertical_bias="0.476" />
 
     <EditText
-        android:id="@+id/edt_description"
+        android:id="@+id/edtDescription"
         android:layout_width="347dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/shape_search"
         android:backgroundTint="#161616"
@@ -68,14 +68,14 @@
         android:inputType="textPersonName"
         android:paddingLeft="20dp"
         android:textColorHint="#9E9E9E"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_name" />
+        app:layout_constraintEnd_toEndOf="@+id/edtProductName"
+        app:layout_constraintStart_toStartOf="@+id/edtProductName"
+        app:layout_constraintTop_toBottomOf="@+id/edtProductName" />
 
     <EditText
-        android:id="@+id/edt_price"
+        android:id="@+id/edtPrice"
         android:layout_width="347dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_marginTop="32dp"
         android:background="@drawable/shape_search"
         android:backgroundTint="#161616"
@@ -84,14 +84,15 @@
         android:inputType="textPersonName"
         android:paddingLeft="20dp"
         android:textColorHint="#9E9E9E"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_description" />
+        app:layout_constraintEnd_toEndOf="@+id/edtDescription"
+        app:layout_constraintStart_toStartOf="@+id/edtDescription"
+        app:layout_constraintTop_toBottomOf="@+id/edtDescription" />
 
     <EditText
-        android:id="@+id/edt_name"
+        android:id="@+id/edtProductName"
         android:layout_width="347dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="120dp"
         android:background="@drawable/shape_search"
         android:backgroundTint="#161616"
         android:ems="10"
@@ -99,26 +100,27 @@
         android:inputType="textPersonName"
         android:paddingLeft="20dp"
         android:textColorHint="#9E9E9E"
-        tools:layout_editor_absoluteX="32dp"
-        tools:layout_editor_absoluteY="255dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <Button
-        android:id="@+id/btn_save"
+        android:id="@+id/btnSave"
         android:layout_width="347dp"
         android:layout_height="70dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/shape_search"
         android:backgroundTint="#38AE00"
         android:text="Save"
         android:textSize="24dp"
         android:textStyle="bold"
         app:backgroundTint="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt_price" />
+        app:layout_constraintEnd_toEndOf="@+id/edtPrice"
+        app:layout_constraintStart_toStartOf="@+id/edtPrice"
+        app:layout_constraintTop_toBottomOf="@+id/edtPrice" />
 
     <Button
-        android:id="@+id/btn_cancel"
+        android:id="@+id/btnCancel"
         android:layout_width="347dp"
         android:layout_height="70dp"
         android:layout_marginTop="32dp"
@@ -128,8 +130,8 @@
         android:textSize="24dp"
         android:textStyle="bold"
         app:backgroundTint="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_save" />
+        app:layout_constraintEnd_toEndOf="@+id/btnSave"
+        app:layout_constraintStart_toStartOf="@+id/btnSave"
+        app:layout_constraintTop_toBottomOf="@+id/btnSave" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
