@@ -31,6 +31,7 @@ import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
 import java.util.Calendar;
 
 import butterknife.BindView;
@@ -99,9 +100,7 @@ public class SignupActivity extends AppCompatActivity {
                 signUp();
             }
         });
-
     }
-
 
     private void signUp() {
         final String email = mEdtGmail.getText().toString();
@@ -165,6 +164,7 @@ public class SignupActivity extends AppCompatActivity {
                                                     mEdtName.requestFocus();
                                                     mEdtGmail.setText("");
                                                     mEdtPassword.setText("");
+                                                    startActivity(new Intent(SignupActivity.this, SigninActivity.class));
                                                 } else {
                                                     Toast.makeText(SignupActivity.this, "Failure! please check internet connection!", Toast.LENGTH_SHORT).show();
                                                 }
@@ -182,4 +182,28 @@ public class SignupActivity extends AppCompatActivity {
                     }
                 });
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @android.support.annotation.Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 0) {
+            Bitmap bitmap = (Bitmap) data.getExtras().get("data");//image bitmap file
+            Bitmap resizeBitmap = Bitmap.createScaledBitmap(bitmap, 680, 500, false);
+            mIvAvatar.setImageBitmap(resizeBitmap);
+        } else if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            Uri uri = data.getData();
+
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
+                // Log.d(TAG, String.valueOf(bitmap));
+
+                //ImageView imageView = (ImageView) findViewById(R.id.imageView);
+                Bitmap resizeBitmap = Bitmap.createScaledBitmap(bitmap, 680, 500, false);
+                mIvAvatar.setImageBitmap(resizeBitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }
+
