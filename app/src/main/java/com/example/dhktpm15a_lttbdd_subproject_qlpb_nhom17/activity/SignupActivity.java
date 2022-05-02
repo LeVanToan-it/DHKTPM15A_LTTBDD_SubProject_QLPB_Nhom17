@@ -96,14 +96,14 @@ public class SignupActivity extends AppCompatActivity {
             } else if (mEdtPassword.getText().length() == 0) {
                 mEdtPassword.setError("Please enter your password!");
             } else {
-                Signup();
+                signUp();
             }
         });
 
     }
 
 
-    private void Signup() {
+    private void signUp() {
         final String email = mEdtGmail.getText().toString();
         String password = mEdtPassword.getText().toString();
         final String name = mEdtName.getText().toString();
