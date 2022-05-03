@@ -46,7 +46,7 @@ public class UploadProductActivity extends AppCompatActivity {
         init();
 
         sqLiteHelper = new SQLiteHelper(this, "product.sqlite",null ,1);
-        sqLiteHelper.queryData("CREATE TABLE product (name VARCHAR, description VARCHAR, price VARCHAR, image BLOG)");
+        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS product (name VARCHAR, description VARCHAR, price VARCHAR, image BLOG)");
 
         btnChoose.setOnClickListener((v) -> {
             Intent intent = new Intent();

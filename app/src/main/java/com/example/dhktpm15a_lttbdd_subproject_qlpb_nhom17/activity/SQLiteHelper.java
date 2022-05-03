@@ -24,7 +24,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
     public void insertData(String name, String description, Double price, byte[] image){
         SQLiteDatabase database = getWritableDatabase();
-        String sql = "Insert into Product values (?,?,?,?)";
+        String sql = "INSERT INTO Product VALUES (?,?,?,?)";
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
 
