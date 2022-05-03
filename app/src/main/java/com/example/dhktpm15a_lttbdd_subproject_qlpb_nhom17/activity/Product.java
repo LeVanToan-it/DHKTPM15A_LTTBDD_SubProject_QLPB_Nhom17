@@ -1,9 +1,19 @@
-package com.example.dhktpm15a_lttbdd_subproject_qlpb_nhom17.activity.model;
+package com.example.dhktpm15a_lttbdd_subproject_qlpb_nhom17.activity;
 
 public class Product {
     public String name;
     public String description;
     public double price;
+    public int imageProduct;
+
+    public Product(String name, String description, double price, int imageProduct) {
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.imageProduct = imageProduct;
+    }
+    public Product() {
+    }
 
     public String getName() {
         return name;
@@ -29,13 +39,12 @@ public class Product {
         this.price = price;
     }
 
-    public Product(String name, String description, double price) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
+    public int getImageProduct() {
+        return imageProduct;
     }
 
-    public Product() {
+    public void setImageProduct(int imageProduct) {
+        this.imageProduct = imageProduct;
     }
 
     @Override
@@ -44,6 +53,7 @@ public class Product {
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
+                ", imageProduct=" + imageProduct +
                 '}';
     }
 }

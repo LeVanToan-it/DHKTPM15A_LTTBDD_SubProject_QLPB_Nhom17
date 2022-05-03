@@ -18,7 +18,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dhktpm15a_lttbdd_subproject_qlpb_nhom17.R;
-import com.example.dhktpm15a_lttbdd_subproject_qlpb_nhom17.activity.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;

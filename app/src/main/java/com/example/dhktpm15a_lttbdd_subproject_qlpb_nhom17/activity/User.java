@@ -1,4 +1,4 @@
-package com.example.dhktpm15a_lttbdd_subproject_qlpb_nhom17.activity.model;
+package com.example.dhktpm15a_lttbdd_subproject_qlpb_nhom17.activity;
 
 public class User {
     public String name;
