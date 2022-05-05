@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.dhktpm15a_lttbdd_subproject_qlpb_nhom17">
     
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
 
     <application
         android:allowBackup="true"
@@ -13,6 +13,7 @@
         android:theme="@style/Theme.DHKTPM15A_LTTBDD_SubProject_QLPB_Nhom17">
         <activity android:name=".activity.SigninActivity" />
         <activity android:name=".activity.MainMenuActivity" />
+        <activity android:name=".activity.SignupActivity" />
 <!--        <activity android:name=".activity.UploadProductActivity"/>-->
         <activity
             android:name=".activity.UploadProductActivity"

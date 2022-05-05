@@ -27,10 +27,24 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class UploadProductActivity extends AppCompatActivity {
 
-    EditText edtName, edtDescription, edtPrice;
-    Button btnSave, btnCancel, btnChoose;
+    @BindView(R.id.edtProductName)
+    EditText edtName;
+    @BindView(R.id.edtDescription)
+    EditText edtDescription;
+    @BindView(R.id.edtPrice)
+    EditText edtPrice;
+    @BindView(R.id.btnSave)
+    Button btnSave;
+    @BindView(R.id.btnCancel)
+    Button btnCancel;
+    @BindView(R.id.btn_choose)
+    Button btnChoose;
+    @BindView(R.id.imgProductAdd)
     ImageView imgProductAdd;
 
     final int REQUEST_CODE_GALLERY = 999;
@@ -42,8 +56,9 @@ public class UploadProductActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_product_activity);
+        ButterKnife.bind(this);
 
-        init();
+        //init();
 
         sqLiteHelper = new SQLiteHelper(this, "product.sqlite",null ,1);
         sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS product (name VARCHAR, description VARCHAR, price VARCHAR, image BLOG)");
@@ -60,7 +75,6 @@ public class UploadProductActivity extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 try{
                     sqLiteHelper.insertData(edtName.getText().toString().trim(),
                             edtDescription.getText().toString().trim(),
