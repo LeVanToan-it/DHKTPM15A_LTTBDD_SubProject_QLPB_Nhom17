@@ -21,6 +21,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.example.dhktpm15a_lttbdd_subproject_qlpb_nhom17.R;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -88,6 +90,14 @@ public class UploadProductActivity extends AppCompatActivity {
                 }catch (Exception e) {
                     e.printStackTrace();
                 }
+            }
+        });
+
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UploadProductActivity.this, MainMenuActivity.class);
+                startActivity(intent);
             }
         });
     }

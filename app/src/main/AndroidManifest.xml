@@ -12,9 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DHKTPM15A_LTTBDD_SubProject_QLPB_Nhom17">
         <activity android:name=".activity.SigninActivity" />
-        <activity android:name=".activity.MainMenuActivity" />
         <activity android:name=".activity.SignupActivity" />
-<!--        <activity android:name=".activity.UploadProductActivity"/>-->
+        <activity android:name=".activity.MainMenuActivity"/>
         <activity
             android:name=".activity.UploadProductActivity"
             android:exported="true">
@@ -24,6 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
     </application>
 
 </manifest>

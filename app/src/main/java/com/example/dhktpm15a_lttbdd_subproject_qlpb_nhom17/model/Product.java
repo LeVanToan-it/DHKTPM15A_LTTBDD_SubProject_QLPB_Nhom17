@@ -1,17 +1,20 @@
 package com.example.dhktpm15a_lttbdd_subproject_qlpb_nhom17.model;
 
-public class Product {
-    public String name;
-    public String description;
-    public double price;
-    public int imageProduct;
+import java.util.Arrays;
 
-    public Product(String name, String description, double price, int imageProduct) {
+public class Product {
+    private String name;
+    private String description;
+    private double price;
+    private byte[] imageProduct;
+
+    public Product(String name, String description, double price, byte[] imageProduct) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.imageProduct = imageProduct;
     }
+
     public Product() {
     }
 
@@ -39,11 +42,11 @@ public class Product {
         this.price = price;
     }
 
-    public int getImageProduct() {
+    public byte[] getImageProduct() {
         return imageProduct;
     }
 
-    public void setImageProduct(int imageProduct) {
+    public void setImageProduct(byte[] imageProduct) {
         this.imageProduct = imageProduct;
     }
 
@@ -53,7 +56,7 @@ public class Product {
                 "name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", price=" + price +
-                ", imageProduct=" + imageProduct +
+                ", imageProduct=" + Arrays.toString(imageProduct) +
                 '}';
     }
 }
