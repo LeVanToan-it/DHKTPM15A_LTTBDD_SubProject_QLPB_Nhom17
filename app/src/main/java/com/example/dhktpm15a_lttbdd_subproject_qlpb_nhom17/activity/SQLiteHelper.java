@@ -24,7 +24,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
     public void insertData(String name, String description, Double price, byte[] image){
         SQLiteDatabase database = getWritableDatabase();
-        String sql = "INSERT INTO Product VALUES (?,?,?,?)";
+        String sql = "INSERT INTO Product VALUES (NULL,?,?,?,?)";
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
 
@@ -34,6 +34,21 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         statement.bindBlob(4, image);
 
         statement.executeInsert();
+    }
+
+    public void EditData(String name, String description, double price, byte[] image, int id){
+        SQLiteDatabase database = getWritableDatabase();
+        String sql = "update product set name =?, description=?, price= ?, image=? where id =?";
+        SQLiteStatement statement = database.compileStatement(sql);
+
+        statement.bindString(1, name);
+        statement.bindString(2,description);
+        statement.bindDouble(3, price);
+        statement.bindBlob(4,image);
+        statement.bindDouble(5, (double)id);
+
+        statement.execute();
+        database.close();
     }
 
     public Cursor getData(String sql){

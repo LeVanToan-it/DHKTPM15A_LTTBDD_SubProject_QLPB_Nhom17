@@ -20,9 +20,9 @@
 
     <EditText
         android:id="@+id/edtSearch"
-        android:layout_width="347dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="120dp"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
         android:background="@drawable/shape_search"
         android:backgroundTint="#161616"
         android:ems="10"
@@ -30,88 +30,40 @@
         android:inputType="textPersonName"
         android:paddingLeft="20dp"
         android:textColorHint="#9E9E9E"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/view"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="28dp"
-        android:background="@drawable/shape_search"
-        android:backgroundTint="#161616"
-        android:ems="10"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.13999999" />
 
     <Button
         android:id="@+id/btnAdd"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/shape_search"
         android:backgroundTint="#38AE00"
         android:text="ADD"
         app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintStart_toStartOf="@+id/view"
-        app:layout_constraintTop_toTopOf="@+id/view" />
-
-    <Button
-        android:id="@+id/btnEdit"
-        android:layout_width="wrap_content"
-        android:backgroundTint="#1598A0"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape_search"
-        android:layout_marginStart="24dp"
-        android:text="EDIT"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="@+id/view"
-        app:layout_constraintStart_toEndOf="@+id/btnAdd"
-        app:layout_constraintTop_toTopOf="@+id/btnAdd"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/btnDelete"
-        android:backgroundTint="#B52626"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape_search"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:text="DELETE"
-        app:backgroundTint="@null"
-        app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/btnEdit"
-        app:layout_constraintTop_toTopOf="@+id/view" />
-
-    <ImageView
-        android:id="@+id/ivAvatar"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="40dp"
-        app:layout_constraintBottom_toTopOf="@+id/edtSearch"
+        app:layout_constraintBottom_toBottomOf="@+id/edtSearch"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.55"
-        app:srcCompat="@drawable/ic_vector_user" />
+        app:layout_constraintHorizontal_bias="0.703"
+        app:layout_constraintStart_toEndOf="@+id/edtSearch"
+        app:layout_constraintTop_toTopOf="@+id/edtSearch"
+        app:layout_constraintVertical_bias="0.51" />
 
     <ImageButton
-        android:id="@+id/ibBack"
+        android:id="@+id/ibBackToLogin"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
-        app:layout_constraintEnd_toStartOf="@+id/ivAvatar"
-        app:layout_constraintHorizontal_bias="0.118"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/edtSearch"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/ivAvatar"
-        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/ic_vector"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
@@ -119,25 +71,36 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="32dp"
-        android:text="Back"
+        android:text="Back To Login"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/ibBack"
-        app:layout_constraintEnd_toStartOf="@+id/ivAvatar"
-        app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toEndOf="@+id/ibBack"
-        app:layout_constraintTop_toTopOf="@+id/ibBack"
+        app:layout_constraintBottom_toBottomOf="@+id/ibBackToLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.04"
+        app:layout_constraintStart_toEndOf="@+id/ibBackToLogin"
+        app:layout_constraintTop_toTopOf="@+id/ibBackToLogin"
         app:layout_constraintVertical_bias="0.476" />
 
     <ListView
         android:id="@+id/lvShoe"
         android:layout_width="395dp"
-        android:layout_height="415dp"
+        android:layout_height="500dp"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/view"
+        android:layout_marginEnd="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtSearch"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/edtSearch" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/ibBackToLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.73"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/ic_vector_user" />
 </androidx.constraintlayout.widget.ConstraintLayout>

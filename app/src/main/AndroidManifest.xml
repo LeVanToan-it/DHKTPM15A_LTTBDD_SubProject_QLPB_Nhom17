@@ -14,6 +14,7 @@
         <activity android:name=".activity.SigninActivity" />
         <activity android:name=".activity.SignupActivity" />
         <activity android:name=".activity.MainMenuActivity"/>
+        <activity android:name=".activity.EditProductActivity"/>
         <activity
             android:name=".activity.UploadProductActivity"
             android:exported="true">

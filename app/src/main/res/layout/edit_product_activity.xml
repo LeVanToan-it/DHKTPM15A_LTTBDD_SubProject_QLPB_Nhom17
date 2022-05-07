@@ -22,14 +22,15 @@
         android:id="@+id/ivAvatar"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.877"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_vector_user" />
 
     <ImageButton
-        android:id="@+id/ibBack"
+        android:id="@+id/ibBackToLogin"
         android:layout_width="40dp"
         android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
@@ -49,11 +50,11 @@
         android:text="Edit Product"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/ibBack"
+        app:layout_constraintBottom_toBottomOf="@+id/ibBackToLogin"
         app:layout_constraintEnd_toStartOf="@+id/ivAvatar"
         app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toEndOf="@+id/ibBack"
-        app:layout_constraintTop_toTopOf="@+id/ibBack"
+        app:layout_constraintStart_toEndOf="@+id/ibBackToLogin"
+        app:layout_constraintTop_toTopOf="@+id/ibBackToLogin"
         app:layout_constraintVertical_bias="0.476" />
 
     <EditText
@@ -92,7 +93,7 @@
         android:id="@+id/edtProductName"
         android:layout_width="347dp"
         android:layout_height="60dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/shape_search"
         android:backgroundTint="#161616"
         android:ems="10"
@@ -102,7 +103,7 @@
         android:textColorHint="#9E9E9E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/imgProductEdit" />
 
     <Button
         android:id="@+id/btnSave"
@@ -111,7 +112,7 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/shape_search"
         android:backgroundTint="#38AE00"
-        android:text="Save"
+        android:text="UPDATE"
         android:textSize="24dp"
         android:textStyle="bold"
         app:backgroundTint="@null"
@@ -123,15 +124,40 @@
         android:id="@+id/btnCancel"
         android:layout_width="347dp"
         android:layout_height="70dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/shape_search"
         android:backgroundTint="#B52626"
         android:text="Cancel"
         android:textSize="24dp"
         android:textStyle="bold"
         app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/btnSave"
         app:layout_constraintStart_toStartOf="@+id/btnSave"
-        app:layout_constraintTop_toBottomOf="@+id/btnSave" />
+        app:layout_constraintTop_toBottomOf="@+id/btnSave"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imgProductEdit"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ibBackToLogin"
+        app:layout_constraintVertical_bias="0.027"
+        app:srcCompat="@drawable/rectangle" />
+
+    <Button
+        android:id="@+id/btnChooseEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose New Image"
+        app:layout_constraintBottom_toBottomOf="@+id/imgProductEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.224"
+        app:layout_constraintStart_toEndOf="@+id/imgProductEdit"
+        app:layout_constraintTop_toTopOf="@+id/imgProductEdit"
+        app:layout_constraintVertical_bias="0.437" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

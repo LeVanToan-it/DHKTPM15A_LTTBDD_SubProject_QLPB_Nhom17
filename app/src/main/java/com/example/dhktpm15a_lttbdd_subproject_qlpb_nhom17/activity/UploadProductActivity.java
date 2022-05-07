@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
@@ -63,7 +64,7 @@ public class UploadProductActivity extends AppCompatActivity {
         //init();
 
         sqLiteHelper = new SQLiteHelper(this, "product.sqlite",null ,1);
-        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS product (name VARCHAR, description VARCHAR, price VARCHAR, image BLOG)");
+        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS product (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, description VARCHAR, price VARCHAR, image BLOG)");
 
         btnChoose.setOnClickListener((v) -> {
             Intent intent = new Intent();
@@ -142,7 +143,11 @@ public class UploadProductActivity extends AppCompatActivity {
 //
 //        }
         if (requestCode == 0) {
-            Bitmap bitmap = (Bitmap) data.getExtras().get("data");//image bitmap file
+            String stringFilePath = Environment.getExternalStorageDirectory().getPath()+edtName.getText().toString()+".png";
+
+//            Bitmap bitmap = (Bitmap) data.getExtras().get("data");//image bitmap file
+            Bitmap bitmap = BitmapFactory.decodeFile(stringFilePath);
+
             Bitmap resizeBitmap = Bitmap.createScaledBitmap(bitmap, 500, 500, false);
             imgProductAdd.setImageBitmap(resizeBitmap);
         } else if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
@@ -151,7 +156,6 @@ public class UploadProductActivity extends AppCompatActivity {
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 // Log.d(TAG, String.valueOf(bitmap));
-
                 //ImageView imageView = (ImageView) findViewById(R.id.imageView);
                 Bitmap resizeBitmap = Bitmap.createScaledBitmap(bitmap, 500, 500, false);
                 imgProductAdd.setImageBitmap(resizeBitmap);

@@ -29,7 +29,7 @@
         app:srcCompat="@drawable/ic_vector_user" />
 
     <ImageButton
-        android:id="@+id/ibBack"
+        android:id="@+id/ibBackToLogin"
         android:layout_width="40dp"
         android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
@@ -49,18 +49,20 @@
         android:text="Add Product"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/ibBack"
+        app:layout_constraintBottom_toBottomOf="@+id/ibBackToLogin"
         app:layout_constraintEnd_toStartOf="@+id/ivAvatar"
         app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toEndOf="@+id/ibBack"
-        app:layout_constraintTop_toTopOf="@+id/ibBack"
+        app:layout_constraintStart_toEndOf="@+id/ibBackToLogin"
+        app:layout_constraintTop_toTopOf="@+id/ibBackToLogin"
         app:layout_constraintVertical_bias="0.476" />
 
     <EditText
         android:id="@+id/edtDescription"
         android:layout_width="347dp"
         android:layout_height="60dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/shape_search"
         android:backgroundTint="#161616"
         android:ems="10"
@@ -69,15 +71,17 @@
         android:paddingLeft="20dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#9E9E9E"
-        app:layout_constraintEnd_toEndOf="@+id/edtProductName"
-        app:layout_constraintStart_toStartOf="@+id/edtProductName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtProductName" />
 
     <EditText
         android:id="@+id/edtPrice"
         android:layout_width="347dp"
         android:layout_height="60dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/shape_search"
         android:backgroundTint="#161616"
         android:ems="10"
@@ -86,15 +90,17 @@
         android:paddingLeft="20dp"
         android:textColor="#FFFFFF"
         android:textColorHint="#9E9E9E"
-        app:layout_constraintEnd_toEndOf="@+id/edtDescription"
-        app:layout_constraintStart_toStartOf="@+id/edtDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtDescription" />
 
     <EditText
         android:id="@+id/edtProductName"
         android:layout_width="347dp"
         android:layout_height="60dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="144dp"
+        android:layout_marginEnd="32dp"
         android:background="@drawable/shape_search"
         android:backgroundTint="#161616"
         android:ems="10"
@@ -118,24 +124,27 @@
         android:textSize="24dp"
         android:textStyle="bold"
         app:backgroundTint="@null"
-        app:layout_constraintEnd_toEndOf="@+id/edtPrice"
-        app:layout_constraintStart_toStartOf="@+id/edtPrice"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtPrice" />
 
     <Button
         android:id="@+id/btnCancel"
         android:layout_width="347dp"
         android:layout_height="70dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/shape_search"
         android:backgroundTint="#B52626"
         android:text="Cancel"
         android:textSize="24dp"
         android:textStyle="bold"
         app:backgroundTint="@null"
-        app:layout_constraintEnd_toEndOf="@+id/btnSave"
-        app:layout_constraintStart_toStartOf="@+id/btnSave"
-        app:layout_constraintTop_toBottomOf="@+id/btnSave" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSave"
+        app:layout_constraintVertical_bias="0.214" />
 
     <ImageView
         android:id="@+id/imgProductAdd"
