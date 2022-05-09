@@ -4,14 +4,24 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.preference.PreferenceManager;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +29,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.dhktpm15a_lttbdd_subproject_qlpb_nhom17.R;
 import com.example.dhktpm15a_lttbdd_subproject_qlpb_nhom17.model.Product;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -31,6 +42,9 @@ public class MainMenuActivity extends AppCompatActivity {
     ListView lvShoe;
     ProductAdapter adt;
     ArrayList<Product> arrayList;
+
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,7 +86,6 @@ public class MainMenuActivity extends AppCompatActivity {
                             }
                             Intent intent = new Intent(MainMenuActivity.this, EditProductActivity.class);
                             startActivity(intent);
-
                         } else {
                             Toast.makeText(getApplicationContext(), "Delete...", Toast.LENGTH_SHORT).show();
                         }
@@ -81,7 +94,10 @@ public class MainMenuActivity extends AppCompatActivity {
                 dialog.show();
                 return true;
             }
+
         });
+
+
 
         btnAdd = findViewById(R.id.btnAdd);
         btnAdd.setOnClickListener(new View.OnClickListener() {
@@ -91,5 +107,9 @@ public class MainMenuActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
+
+
+
 }

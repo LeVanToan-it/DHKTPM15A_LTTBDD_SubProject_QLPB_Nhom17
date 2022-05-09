@@ -1,6 +1,5 @@
 package com.example.dhktpm15a_lttbdd_subproject_qlpb_nhom17.activity;
 
-import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -19,23 +18,18 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 import com.example.dhktpm15a_lttbdd_subproject_qlpb_nhom17.R;
-import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageReference;
 
 import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class UploadProductActivity extends AppCompatActivity {
 
-    @BindView(R.id.edtProductName)
+    @BindView(R.id.edtNameEdit)
     EditText edtName;
     @BindView(R.id.edtDescription)
     EditText edtDescription;
