@@ -37,6 +37,7 @@ import butterknife.BindView;
 
 public class MainMenuActivity extends AppCompatActivity {
 
+
     Button btnAdd;
     Button  btnEdit;
     Button btnDelete;
@@ -45,7 +46,11 @@ public class MainMenuActivity extends AppCompatActivity {
     ProductAdapter adt;
     ArrayList<Product> arrayList;
     SQLiteHelper sqLiteHelper = new SQLiteHelper(this,"product.sqlite",null,1);
-
+//    Button mBtnUpdate;
+//    EditText mEtNameEdit,mEtDescriptionEdit,mEtPriceEdit;
+//    ImageView mImgProductEdit;
+    EditProductActivity editProductActivity = new EditProductActivity();
+//    int idEdt = 0;
 
 
     @Override
@@ -74,7 +79,7 @@ public class MainMenuActivity extends AppCompatActivity {
 
         lvShoe.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
                 CharSequence[] item = {"Update", "Delete"};
                 AlertDialog.Builder dialog = new AlertDialog.Builder(MainMenuActivity.this);
                 dialog.setTitle("Choose an action");
@@ -82,13 +87,16 @@ public class MainMenuActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if(i == 0){
+
+                            Intent intent = new Intent(MainMenuActivity.this, EditProductActivity.class);
+                            startActivity(intent);
                             Cursor c = sqLiteHelper.getData("select * from product");
                             ArrayList<Integer> arrId = new ArrayList<Integer>();
                             while (c.moveToNext()){
                                 arrId.add(c.getInt(0));
                             }
-                            Intent intent = new Intent(MainMenuActivity.this, EditProductActivity.class);
-                            startActivity(intent);
+//                            idEdt = arrId.get(position);
+
                         } else {
 
                             Toast.makeText(getApplicationContext(), "Delete...", Toast.LENGTH_SHORT).show();
@@ -100,8 +108,6 @@ public class MainMenuActivity extends AppCompatActivity {
             }
 
         });
-
-
 
         btnAdd = findViewById(R.id.btnAdd);
         btnAdd.setOnClickListener(new View.OnClickListener() {
@@ -122,7 +128,5 @@ public class MainMenuActivity extends AppCompatActivity {
         });
 
     }
-
-
 
 }

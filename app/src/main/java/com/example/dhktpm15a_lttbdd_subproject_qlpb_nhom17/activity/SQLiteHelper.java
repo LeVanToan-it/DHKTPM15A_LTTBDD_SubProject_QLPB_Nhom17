@@ -63,7 +63,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         statement.bindString(2,description);
         statement.bindDouble(3, price);
         statement.bindBlob(4,image);
-        statement.bindDouble(5, (double)id);
+        statement.bindDouble(5, id);
 
         statement.execute();
         database.close();
@@ -74,7 +74,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
         String sql = "delete from product where id=?";
         SQLiteStatement statement = database.compileStatement(sql);
-        statement.bindDouble(0, (double)id);
+        statement.bindDouble(0, id);
 
         statement.execute();
         database.close();

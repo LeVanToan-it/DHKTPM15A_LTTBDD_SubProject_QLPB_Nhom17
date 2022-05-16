@@ -2,6 +2,7 @@ package com.example.dhktpm15a_lttbdd_subproject_qlpb_nhom17.activity;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -24,6 +25,7 @@ import com.example.dhktpm15a_lttbdd_subproject_qlpb_nhom17.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,6 +48,8 @@ public class UploadProductActivity extends AppCompatActivity {
     ImageView imgProductAdd;
     @BindView(R.id.ibBack)
     ImageButton ibBack;
+
+
 
     final int REQUEST_CODE_GALLERY = 999;
     final int PICK_IMAGE_REQUEST = 1;
@@ -111,13 +115,15 @@ public class UploadProductActivity extends AppCompatActivity {
         });
     }
 
-    private byte[] imageProductToByte(ImageView image) {
+    public static byte[] imageProductToByte(ImageView image) {
         Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.PNG,100,stream);
         byte[] byteArray = stream.toByteArray();
         return byteArray;
     }
+
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
