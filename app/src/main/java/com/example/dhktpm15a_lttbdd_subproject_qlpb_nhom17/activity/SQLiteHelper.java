@@ -1,5 +1,6 @@
 package com.example.dhktpm15a_lttbdd_subproject_qlpb_nhom17.activity;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -24,6 +25,15 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
     public void insertData(String name, String description, Double price, byte[] image){
         SQLiteDatabase database = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("name", name);
+        values.put("description", description);
+        values.put("price", price);
+        values.put("image", image);
+
+        //database.insert("product",null, values);
+
         String sql = "INSERT INTO Product VALUES (NULL,?,?,?,?)";
         SQLiteStatement statement = database.compileStatement(sql);
         statement.clearBindings();
@@ -38,6 +48,14 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
     public void EditData(String name, String description, double price, byte[] image, int id){
         SQLiteDatabase database = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("name", name);
+        values.put("description", description);
+        values.put("price", price);
+        values.put("image", image);
+
+//        database.update("product", values, "name=?", new String[]{});
         String sql = "update product set name =?, description=?, price= ?, image=? where id =?";
         SQLiteStatement statement = database.compileStatement(sql);
 
@@ -51,6 +69,17 @@ public class SQLiteHelper extends SQLiteOpenHelper {
         database.close();
     }
 
+    public void DeleteData(int id){
+        SQLiteDatabase database = getWritableDatabase();
+
+        String sql = "delete from product where id=?";
+        SQLiteStatement statement = database.compileStatement(sql);
+        statement.bindDouble(0, (double)id);
+
+        statement.execute();
+        database.close();
+    }
+
     public Cursor getData(String sql){
         SQLiteDatabase database = getReadableDatabase();
         return database.rawQuery(sql,null);
@@ -58,11 +87,11 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
+        //sqLiteDatabase.execSQL("create table product(name VARCHAR primary key, description VARCHAR, price VARCHAR, image BLOG)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+        //sqLiteDatabase.execSQL("drop table if exists product");
     }
 }

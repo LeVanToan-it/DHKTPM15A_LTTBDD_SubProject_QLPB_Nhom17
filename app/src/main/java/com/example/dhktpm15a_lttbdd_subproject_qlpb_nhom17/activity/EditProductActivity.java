@@ -4,12 +4,15 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -18,20 +21,47 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.dhktpm15a_lttbdd_subproject_qlpb_nhom17.R;
+import com.example.dhktpm15a_lttbdd_subproject_qlpb_nhom17.model.Product;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 
 public class EditProductActivity extends AppCompatActivity {
     final int PICK_IMAGE_REQUEST = 1;
     final int REQUEST_CODE_GALLERY = 999;
+    SQLiteHelper sqLiteHelper = new SQLiteHelper(this,"product.sqlite",null,1);
 
+    @BindView(R.id.edtNameEdit)
+    EditText mEtNameEdit;
+    @BindView(R.id.edtDescriptionEdit)
+    EditText mEtDescriptionEdit;
+    @BindView(R.id.edtPriceEdit)
+    EditText mEtPriceEdit;
+    @BindView(R.id.imgProductEdit)
+    ImageView mImgProductEdit;
+    @BindView(R.id.btnUpdate)
+    Button mBtnUpdate;
+    @BindView(R.id.btnCancel)
+    Button mBtnCancel;
+    @BindView(R.id.btnChooseEdit)
+    Button btnChooseEdit;
+    @BindView(R.id.ibBack)
+    ImageButton ibBack;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.edit_product_activity);
-        Button btnChooseEdit = findViewById(R.id.btnChooseEdit);
+        ButterKnife.bind(this);
+
+        //Product product = sqLiteHelper.getData();
+
+        //Button btnChooseEdit = findViewById(R.id.btnChooseEdit);
+
         btnChooseEdit.setOnClickListener((v) -> {
             Intent intent = new Intent();
             // show only images, no videos or anything else
@@ -40,7 +70,55 @@ public class EditProductActivity extends AppCompatActivity {
             //Alway show chooser
             startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
         });
+
+        mBtnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try{
+
+//                    sqLiteHelper.EditData(mEtNameEdit.getText().toString().trim(),
+//                            mEtDescriptionEdit.getText().toString().trim(),
+//                            Double.parseDouble(mEtPriceEdit.getText().toString()),
+//                            imageProductToByte(mImgProductEdit));
+                    Toast.makeText(getApplicationContext(), "Update Successfully", Toast.LENGTH_SHORT).show();
+                    mEtNameEdit.setText("");
+                    mEtDescriptionEdit.setText("");
+                    mEtPriceEdit.setText("");
+                    mImgProductEdit.setImageResource(R.drawable.rectangle);
+                }catch (Exception e) {
+                    e.printStackTrace();
+                }finally {
+                    Intent intent = new Intent(EditProductActivity.this, MainMenuActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
+
+        mBtnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EditProductActivity.this, MainMenuActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ibBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(EditProductActivity.this, MainMenuActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+
+    private byte[] imageProductToByte(ImageView image) {
+        Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100,stream);
+        byte[] byteArray = stream.toByteArray();
+        return byteArray;
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 

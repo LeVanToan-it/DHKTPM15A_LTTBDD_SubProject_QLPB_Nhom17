@@ -137,7 +137,7 @@ public class SignupActivity extends AppCompatActivity {
                             @Override
                             public void onFailure(@android.support.annotation.NonNull Exception exception) {
                                 // Handle unsuccessful uploads
-                                Toast.makeText(SignupActivity.this, "Error! Hey you", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(SignupActivity.this, "Error upload image! Hey you", Toast.LENGTH_SHORT).show();
                             }
                         }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                             @Override

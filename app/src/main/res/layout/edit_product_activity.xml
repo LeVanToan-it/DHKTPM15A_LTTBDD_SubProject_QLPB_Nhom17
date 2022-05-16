@@ -30,7 +30,7 @@
         app:srcCompat="@drawable/ic_vector_user" />
 
     <ImageButton
-        android:id="@+id/ibBackToLogin"
+        android:id="@+id/ibBack"
         android:layout_width="40dp"
         android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
@@ -50,15 +50,15 @@
         android:text="Edit Product"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/ibBackToLogin"
+        app:layout_constraintBottom_toBottomOf="@+id/ibBack"
         app:layout_constraintEnd_toStartOf="@+id/ivAvatar"
         app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toEndOf="@+id/ibBackToLogin"
-        app:layout_constraintTop_toTopOf="@+id/ibBackToLogin"
+        app:layout_constraintStart_toEndOf="@+id/ibBack"
+        app:layout_constraintTop_toTopOf="@+id/ibBack"
         app:layout_constraintVertical_bias="0.476" />
 
     <EditText
-        android:id="@+id/edtDescription"
+        android:id="@+id/edtDescriptionEdit"
         android:layout_width="347dp"
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
@@ -74,7 +74,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edtNameEdit" />
 
     <EditText
-        android:id="@+id/edtPrice"
+        android:id="@+id/edtPriceEdit"
         android:layout_width="347dp"
         android:layout_height="60dp"
         android:layout_marginTop="32dp"
@@ -85,9 +85,9 @@
         android:inputType="textPersonName"
         android:paddingLeft="20dp"
         android:textColorHint="#9E9E9E"
-        app:layout_constraintEnd_toEndOf="@+id/edtDescription"
-        app:layout_constraintStart_toStartOf="@+id/edtDescription"
-        app:layout_constraintTop_toBottomOf="@+id/edtDescription" />
+        app:layout_constraintEnd_toEndOf="@+id/edtDescriptionEdit"
+        app:layout_constraintStart_toStartOf="@+id/edtDescriptionEdit"
+        app:layout_constraintTop_toBottomOf="@+id/edtDescriptionEdit" />
 
     <EditText
         android:id="@+id/edtNameEdit"
@@ -106,7 +106,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imgProductEdit" />
 
     <Button
-        android:id="@+id/btnSave"
+        android:id="@+id/btnUpdate"
         android:layout_width="347dp"
         android:layout_height="70dp"
         android:layout_marginTop="32dp"
@@ -116,9 +116,9 @@
         android:textSize="24dp"
         android:textStyle="bold"
         app:backgroundTint="@null"
-        app:layout_constraintEnd_toEndOf="@+id/edtPrice"
-        app:layout_constraintStart_toStartOf="@+id/edtPrice"
-        app:layout_constraintTop_toBottomOf="@+id/edtPrice" />
+        app:layout_constraintEnd_toEndOf="@+id/edtPriceEdit"
+        app:layout_constraintStart_toStartOf="@+id/edtPriceEdit"
+        app:layout_constraintTop_toBottomOf="@+id/edtPriceEdit" />
 
     <Button
         android:id="@+id/btnCancel"
@@ -132,9 +132,9 @@
         android:textStyle="bold"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/btnSave"
-        app:layout_constraintStart_toStartOf="@+id/btnSave"
-        app:layout_constraintTop_toBottomOf="@+id/btnSave"
+        app:layout_constraintEnd_toEndOf="@+id/btnUpdate"
+        app:layout_constraintStart_toStartOf="@+id/btnUpdate"
+        app:layout_constraintTop_toBottomOf="@+id/btnUpdate"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
@@ -144,7 +144,7 @@
         android:layout_marginStart="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ibBackToLogin"
+        app:layout_constraintTop_toBottomOf="@+id/ibBack"
         app:layout_constraintVertical_bias="0.027"
         app:srcCompat="@drawable/rectangle" />
 

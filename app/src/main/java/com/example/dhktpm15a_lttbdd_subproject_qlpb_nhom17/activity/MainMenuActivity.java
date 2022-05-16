@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -39,9 +40,11 @@ public class MainMenuActivity extends AppCompatActivity {
     Button btnAdd;
     Button  btnEdit;
     Button btnDelete;
+    ImageButton ibBackToLogin;
     ListView lvShoe;
     ProductAdapter adt;
     ArrayList<Product> arrayList;
+    SQLiteHelper sqLiteHelper = new SQLiteHelper(this,"product.sqlite",null,1);
 
 
 
@@ -57,7 +60,7 @@ public class MainMenuActivity extends AppCompatActivity {
         lvShoe.setAdapter(adt);
 
         // Get Data form SQlite
-        Cursor cursor = UploadProductActivity.sqLiteHelper.getData("Select * from Product");
+        Cursor cursor = sqLiteHelper.getData("Select * from product");
         arrayList.clear();
         while (cursor.moveToNext()){
             String name = cursor.getString(1);
@@ -79,14 +82,15 @@ public class MainMenuActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if(i == 0){
-                            Cursor c = UploadProductActivity.sqLiteHelper.getData("select id from product");
-                            ArrayList<Integer> arrID = new ArrayList<Integer>();
+                            Cursor c = sqLiteHelper.getData("select * from product");
+                            ArrayList<Integer> arrId = new ArrayList<Integer>();
                             while (c.moveToNext()){
-                                arrID.add(c.getInt(0));
+                                arrId.add(c.getInt(0));
                             }
                             Intent intent = new Intent(MainMenuActivity.this, EditProductActivity.class);
                             startActivity(intent);
                         } else {
+
                             Toast.makeText(getApplicationContext(), "Delete...", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -104,6 +108,15 @@ public class MainMenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainMenuActivity.this, UploadProductActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ibBackToLogin = findViewById(R.id.ibBackToLogin);
+        ibBackToLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainMenuActivity.this, SigninActivity.class);
                 startActivity(intent);
             }
         });

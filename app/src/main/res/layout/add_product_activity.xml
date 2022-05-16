@@ -29,7 +29,7 @@
         app:srcCompat="@drawable/ic_vector_user" />
 
     <ImageButton
-        android:id="@+id/ibBackToLogin"
+        android:id="@+id/ibBack"
         android:layout_width="40dp"
         android:layout_height="40dp"
         app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
@@ -49,11 +49,11 @@
         android:text="Add Product"
         android:textColor="#FFFFFF"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="@+id/ibBackToLogin"
+        app:layout_constraintBottom_toBottomOf="@+id/ibBack"
         app:layout_constraintEnd_toStartOf="@+id/ivAvatar"
         app:layout_constraintHorizontal_bias="0.099"
-        app:layout_constraintStart_toEndOf="@+id/ibBackToLogin"
-        app:layout_constraintTop_toTopOf="@+id/ibBackToLogin"
+        app:layout_constraintStart_toEndOf="@+id/ibBack"
+        app:layout_constraintTop_toTopOf="@+id/ibBack"
         app:layout_constraintVertical_bias="0.476" />
 
     <EditText
@@ -73,7 +73,7 @@
         android:textColorHint="#9E9E9E"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtNameEdit" />
+        app:layout_constraintTop_toBottomOf="@+id/edtName" />
 
     <EditText
         android:id="@+id/edtPrice"
@@ -95,7 +95,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edtDescription" />
 
     <EditText
-        android:id="@+id/edtNameEdit"
+        android:id="@+id/edtName"
         android:layout_width="347dp"
         android:layout_height="60dp"
         android:layout_marginStart="32dp"
@@ -151,7 +151,7 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginStart="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/edtNameEdit"
+        app:layout_constraintBottom_toTopOf="@+id/edtName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_constraintVertical_bias="0.484"

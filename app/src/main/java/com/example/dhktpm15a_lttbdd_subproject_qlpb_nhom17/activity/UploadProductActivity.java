@@ -12,6 +12,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -29,7 +30,7 @@ import butterknife.ButterKnife;
 
 public class UploadProductActivity extends AppCompatActivity {
 
-    @BindView(R.id.edtNameEdit)
+    @BindView(R.id.edtName)
     EditText edtName;
     @BindView(R.id.edtDescription)
     EditText edtDescription;
@@ -43,6 +44,8 @@ public class UploadProductActivity extends AppCompatActivity {
     Button btnChoose;
     @BindView(R.id.imgProductAdd)
     ImageView imgProductAdd;
+    @BindView(R.id.ibBack)
+    ImageButton ibBack;
 
     final int REQUEST_CODE_GALLERY = 999;
     final int PICK_IMAGE_REQUEST = 1;
@@ -58,7 +61,7 @@ public class UploadProductActivity extends AppCompatActivity {
         //init();
 
         sqLiteHelper = new SQLiteHelper(this, "product.sqlite",null ,1);
-        sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS product (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, description VARCHAR, price VARCHAR, image BLOG)");
+        //sqLiteHelper.queryData("CREATE TABLE IF NOT EXISTS product (id INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, description VARCHAR, price VARCHAR, image BLOG)");
 
         btnChoose.setOnClickListener((v) -> {
             Intent intent = new Intent();
@@ -84,11 +87,22 @@ public class UploadProductActivity extends AppCompatActivity {
                     imgProductAdd.setImageResource(R.drawable.rectangle);
                 }catch (Exception e) {
                     e.printStackTrace();
+                }finally {
+                    Intent intent = new Intent(UploadProductActivity.this, MainMenuActivity.class);
+                    startActivity(intent);
                 }
             }
         });
 
         btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(UploadProductActivity.this, MainMenuActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        ibBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(UploadProductActivity.this, MainMenuActivity.class);

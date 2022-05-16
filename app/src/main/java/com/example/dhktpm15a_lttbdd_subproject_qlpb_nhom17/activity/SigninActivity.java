@@ -63,6 +63,14 @@ public class SigninActivity extends AppCompatActivity {
                 }
             }
         });
+
+        mTvSignup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SigninActivity.this, SignupActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     public void signIn(){
