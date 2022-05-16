@@ -34,14 +34,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class MainMenuActivity extends AppCompatActivity {
-
-
+    @BindView(R.id.btnAdd)
     Button btnAdd;
     Button  btnEdit;
     Button btnDelete;
+    @BindView(R.id.ibBackToLogin)
     ImageButton ibBackToLogin;
+    @BindView(R.id.lvShoe)
     ListView lvShoe;
     ProductAdapter adt;
     ArrayList<Product> arrayList;
@@ -49,14 +51,15 @@ public class MainMenuActivity extends AppCompatActivity {
 //    Button mBtnUpdate;
 //    EditText mEtNameEdit,mEtDescriptionEdit,mEtPriceEdit;
 //    ImageView mImgProductEdit;
-    EditProductActivity editProductActivity = new EditProductActivity();
-//    int idEdt = 0;
+//    EditProductActivity editProductActivity = new EditProductActivity();
+    static int idEdt;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_menu);
+        ButterKnife.bind(this);
 
         lvShoe = (ListView) findViewById(R.id.lvShoe);
         arrayList = new ArrayList<>();
@@ -87,19 +90,25 @@ public class MainMenuActivity extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if(i == 0){
-
-                            Intent intent = new Intent(MainMenuActivity.this, EditProductActivity.class);
-                            startActivity(intent);
                             Cursor c = sqLiteHelper.getData("select * from product");
                             ArrayList<Integer> arrId = new ArrayList<Integer>();
                             while (c.moveToNext()){
                                 arrId.add(c.getInt(0));
                             }
-//                            idEdt = arrId.get(position);
-
+                            idEdt = arrId.get(position);
+                            Intent intent = new Intent(MainMenuActivity.this, EditProductActivity.class);
+                            startActivity(intent);
                         } else {
-
+                            Cursor c = sqLiteHelper.getData("select * from product");
+                            ArrayList<Integer> arrId = new ArrayList<Integer>();
+                            while (c.moveToNext()){
+                                arrId.add(c.getInt(0));
+                            }
+                            sqLiteHelper.DeleteData(arrId.get(position));
                             Toast.makeText(getApplicationContext(), "Delete...", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(MainMenuActivity.this, MainMenuActivity.class);
+                            startActivity(intent);
+                            // adt.notifyDataSetChanged();
                         }
                     }
                 });
@@ -126,6 +135,7 @@ public class MainMenuActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
     }
 

@@ -55,6 +55,8 @@ public class EditProductActivity extends AppCompatActivity {
     @BindView(R.id.ibBack)
     ImageButton ibBack;
     
+    MainMenuActivity mainMenuActivity;
+    //int id = mainMenuActivity.idEdt;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -62,6 +64,7 @@ public class EditProductActivity extends AppCompatActivity {
         setContentView(R.layout.edit_product_activity);
         ButterKnife.bind(this);
 
+        System.out.println(mainMenuActivity.idEdt);
 
 
         //Product product = sqLiteHelper.getData();
@@ -77,7 +80,27 @@ public class EditProductActivity extends AppCompatActivity {
             startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
         });
 
-//        getDataInEdt(mainMenuActivity.idEdt);
+       //getDataInEdt(mainMenuActivity.idEdt);
+
+        mBtnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                try{
+                    UploadProductActivity.sqLiteHelper.EditData(mEtNameEdit.getText().toString().trim(),
+                            mEtDescriptionEdit.getText().toString().trim(),
+                            Double.parseDouble(mEtPriceEdit.getText().toString()),
+                            UploadProductActivity.imageProductToByte(mImgProductEdit), mainMenuActivity.idEdt);
+                    Toast.makeText(getApplicationContext(), "Update Successfully", Toast.LENGTH_SHORT).show();
+                }catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(getApplicationContext(), "Update failed", Toast.LENGTH_SHORT).show();
+                }finally {
+                    Intent intent = new Intent(EditProductActivity.this, MainMenuActivity.class);
+                    startActivity(intent);
+                }
+            }
+        });
 
         mBtnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -143,31 +166,31 @@ public class EditProductActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    public void getDataInEdt(int i){
-//        mBtnUpdate = findViewById(R.id.btnUpdate);
-//        mEtNameEdit= findViewById(R.id.edtNameEdit);
-//        mEtDescriptionEdit = findViewById(R.id.edtDescriptionEdit);
-//        mEtPriceEdit = findViewById(R.id.edtPriceEdit);
-//        mImgProductEdit = findViewById(R.id.imgProductEdit);
-        mBtnUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                try{
-                    UploadProductActivity.sqLiteHelper.EditData(mEtNameEdit.getText().toString().trim(),
-                            mEtDescriptionEdit.getText().toString().trim(),
-                            Double.parseDouble(mEtPriceEdit.getText().toString()),
-                            UploadProductActivity.imageProductToByte(mImgProductEdit), i);
-                    Toast.makeText(getApplicationContext(), "Update Successfully", Toast.LENGTH_SHORT).show();
-                    mEtNameEdit.setText("");
-                    mEtDescriptionEdit.setText("");
-                    mEtPriceEdit.setText("");
-                    mImgProductEdit.setImageResource(R.drawable.rectangle);
-                }catch (Exception e) {
-                    e.printStackTrace();
-                    Toast.makeText(getApplicationContext(), "Update failed", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-    }
+//    public void getDataInEdt(int i){
+////        mBtnUpdate = findViewById(R.id.btnUpdate);
+////        mEtNameEdit= findViewById(R.id.edtNameEdit);
+////        mEtDescriptionEdit = findViewById(R.id.edtDescriptionEdit);
+////        mEtPriceEdit = findViewById(R.id.edtPriceEdit);
+////        mImgProductEdit = findViewById(R.id.imgProductEdit);
+//        mBtnUpdate.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                try{
+//                    UploadProductActivity.sqLiteHelper.EditData(mEtNameEdit.getText().toString().trim(),
+//                            mEtDescriptionEdit.getText().toString().trim(),
+//                            Double.parseDouble(mEtPriceEdit.getText().toString()),
+//                            UploadProductActivity.imageProductToByte(mImgProductEdit), i);
+//                    Toast.makeText(getApplicationContext(), "Update Successfully", Toast.LENGTH_SHORT).show();
+//                    mEtNameEdit.setText("");
+//                    mEtDescriptionEdit.setText("");
+//                    mEtPriceEdit.setText("");
+//                    mImgProductEdit.setImageResource(R.drawable.rectangle);
+//                }catch (Exception e) {
+//                    e.printStackTrace();
+//                    Toast.makeText(getApplicationContext(), "Update failed", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+//    }
 }

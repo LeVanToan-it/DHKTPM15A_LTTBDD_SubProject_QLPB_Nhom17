@@ -49,11 +49,11 @@ public class SQLiteHelper extends SQLiteOpenHelper {
     public void EditData(String name, String description, double price, byte[] image, int id){
         SQLiteDatabase database = getWritableDatabase();
 
-        ContentValues values = new ContentValues();
-        values.put("name", name);
-        values.put("description", description);
-        values.put("price", price);
-        values.put("image", image);
+//        ContentValues values = new ContentValues();
+//        values.put("name", name);
+//        values.put("description", description);
+//        values.put("price", price);
+//        values.put("image", image);
 
 //        database.update("product", values, "name=?", new String[]{});
         String sql = "update product set name =?, description=?, price= ?, image=? where id =?";
@@ -74,7 +74,7 @@ public class SQLiteHelper extends SQLiteOpenHelper {
 
         String sql = "delete from product where id=?";
         SQLiteStatement statement = database.compileStatement(sql);
-        statement.bindDouble(0, id);
+        statement.bindDouble(1, id);
 
         statement.execute();
         database.close();
